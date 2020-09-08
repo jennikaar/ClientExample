@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Jenni Kääriäinen <503310@mail.muni.cz>
+ * @author Jenni Kääriäinen
  */
 public class Client {
 
@@ -79,24 +79,9 @@ public class Client {
 			}
 			String did_buy = "yes";
 			String did_sell = "yes";
-			for (int i=0; i<stocklist.size();i++){
-				if(port.balance(token) > port.info(stocklist.get(i))){ 
-					if (port.info(stocklist.get(i))< medium_stock[i]){
-						port.buy(token, stocklist.get(i),1);
-						System.out.println("Balance after buying: " + port.balance(token));
-					}
-					else did_buy = "no";				
-				}
-				else did_buy = "no";
-				if(port.own(token, stocklist.get(i)) > 0){
-					if(port.info(stocklist.get(i))>medium_stock[i]){
-						port.sell(token, stocklist.get(i),1);
-						System.out.println("Balance after selling: " + port.balance(token));
-					}
-					else did_sell = "no";
-				}
-				else did_sell = "no";
-			}
+			/**
+			* Some code hidden because course work and do not want to give out all code if this still in use
+			**/
 			if(did_buy.equals("yes") | did_sell.equals("yes")){
 				System.out.println("Current balance and my account owns these stocks: ");
 				System.out.println("Balance: " + port.balance(token));
